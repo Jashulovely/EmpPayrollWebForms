@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td class="auto-style3">
-                <asp:Label ID="Label2" runat="server" Font-Size="Medium" Text="Employee Name"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Font-Size="Medium" Text="Employee Name"></asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="TextBox2" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
@@ -87,10 +87,11 @@
             <td class="auto-style2">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style4">&nbsp;</td>
+            <td class="auto-style4"></td>
             <td class="auto-style2">
-                <asp:Button ID="Button1" runat="server" BackColor="#6600CC" Font-Size="Medium" ForeColor="White" Text="Insert" OnClick="Button1_Click" ></asp:Button>
-            &nbsp;&nbsp;
+                <asp:Button ID="Button1" runat="server" BackColor="#6600CC" Font-Size="Medium" ForeColor="White" Text="Submit" OnClick="Button1_Click" ></asp:Button>
+                &nbsp; &nbsp;<asp:Button ID="Button6" runat="server" BackColor="#6600CC" Font-Size="Medium" ForeColor="White" OnClick="Button6_Click" Text="Reset" />
+                &nbsp;&nbsp;
                 <asp:Button ID="Button2" runat="server" BackColor="#6600CC" Font-Size="Medium" ForeColor="White" Text="Update" OnClick="Button2_Click" ></asp:Button>
             &nbsp;&nbsp;
                 <asp:Button ID="Button3" runat="server" BackColor="#6600CC" Font-Size="Medium" ForeColor="White" Text="Delete" OnClick="Button3_Click" OnClientClick="return confirm('Are you sure to delete?')" ></asp:Button>
@@ -104,7 +105,21 @@
         </tr>
         <tr>
             <td class="auto-style2" colspan="2">
-                <asp:GridView ID="GridView1" runat="server" Width="1284px">
+                <asp:GridView ID="GridView1" runat="server" Width="1091px" HorizontalAlign="Center" AutoGenerateColumns="False" DataKeyNames="EmpId" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                    <Columns>
+                        <asp:BoundField DataField="EmpId" HeaderText="Emp_ID" ReadOnly="True" />
+                        <asp:BoundField DataField="EmpName" HeaderText="Emp_Name" />
+                        <asp:BoundField DataField="Gender" HeaderText="Emp_Gender" />
+                        <asp:BoundField DataField="Department" HeaderText="Emp_Dept" />
+                        <asp:BoundField DataField="Salary" HeaderText="Emp_Sal" />
+                        <asp:BoundField DataField="StartDate" HeaderText="Emp_JoinDate" />
+                        <asp:CommandField ButtonType="Button" ShowEditButton="True">
+                        <ControlStyle BackColor="#33CC33" ForeColor="White" />
+                        </asp:CommandField>
+                        <asp:CommandField ButtonType="Button" ShowDeleteButton="True">
+                        <ControlStyle BackColor="#FF3300" ForeColor="White" />
+                        </asp:CommandField>
+                    </Columns>
                     <HeaderStyle BackColor="#3333FF" ForeColor="White" />
                 </asp:GridView>
             </td>
